@@ -1,0 +1,55 @@
+/* Reset margins and borders so elements fit edge-to-edge */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Outer layout wrapper */
+.game-container {
+  display: grid;
+  height: 100vh; /* Fills 100% of the browser height */
+  
+  /* Rows: Header is 60px tall, remaining row (1fr) fills the rest */
+  grid-template-rows: 60px 1fr; 
+  
+  /* Columns: Sidebar is 220px wide, main screen (1fr) fills the rest */
+  grid-template-columns: 220px 1fr; 
+  
+  /* Visual map of the grid zones */
+  grid-template-areas:
+    "header  header"
+    "sidebar main";
+}
+
+/* Map individual sections to their grid areas */
+.game-header {
+  grid-area: header;
+  background-color: #1f2937;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.game-sidebar {
+  grid-area: sidebar;
+  background-color: #111827;
+  color: white;
+  padding: 1rem;
+  flex-direction: column;
+}
+.button-container {
+  display: flex;
+  flex-direction: column; /* Stacks the buttons vertically */
+  gap: 10px;              /* Adds clean spacing between the buttons */
+  width: max-content;     /* Prevents buttons from stretching to full width */
+}
+
+.game-main {
+  grid-area: main;
+  background-color: #0f172a;
+  color: white;
+  padding: 1rem;
+}
