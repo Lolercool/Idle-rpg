@@ -1,55 +1,183 @@
-/* Reset margins and borders so elements fit edge-to-edge */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Base Reset & Typography */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Outer layout wrapper */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #0b0b0e;
+  color: #e1e1e6;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Outer Grid Layout */
 .game-container {
   display: grid;
-  height: 100vh; /* Fills 100% of the browser height */
-  
-  /* Rows: Header is 60px tall, remaining row (1fr) fills the rest */
-  grid-template-rows: 60px 1fr; 
-  
-  /* Columns: Sidebar is 220px wide, main screen (1fr) fills the rest */
-  grid-template-columns: 220px 1fr; 
-  
-  /* Visual map of the grid zones */
+  height: 100vh;
+  grid-template-rows: 56px 1fr;
+  grid-template-columns: 240px 1fr;
   grid-template-areas:
     "header  header"
     "sidebar main";
 }
 
-/* Map individual sections to their grid areas */
+/* Top Header */
 .game-header {
   grid-area: header;
-  background-color: #1f2937;
-  color: white;
+  background-color: #121217;
+  border-bottom: 1px solid #1f1f28;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 }
 
+.game-header h1 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.game-header p {
+  font-size: 0.85rem;
+  color: #a1a1aa;
+  font-weight: 500;
+}
+
+.game-header span {
+  color: #f59e0b; /* Gold accent */
+  font-weight: 600;
+}
+
+/* Left Sidebar Navigation */
 .game-sidebar {
   grid-area: sidebar;
-  background-color: #111827;
-  color: white;
-  padding: 1rem;
-  flex-direction: column;
-}
-.button-container {
+  background-color: #101014;
+  border-right: 1px solid #1f1f28;
+  padding: 1.25rem 0.75rem;
   display: flex;
-  flex-direction: column; /* Stacks the buttons vertically */
-  gap: 10px;              /* Adds clean spacing between the buttons */
-  width: max-content;     /* Prevents buttons from stretching to full width */
+  flex-direction: column;
+  gap: 1.25rem;
+  overflow-y: auto;
 }
 
+.game-sidebar h2 {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #71717a;
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.character-button-container,
+.activities-button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.game-sidebar button {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #a1a1aa;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  width: 100%;
+}
+
+.game-sidebar button:hover {
+  background-color: #1a1a22;
+  color: #ffffff;
+}
+
+.game-sidebar button:active {
+  background-color: #24221b;
+  border-color: #d97706;
+  color: #fbbf24;
+}
+
+/* Main Gameplay Area */
 .game-main {
   grid-area: main;
-  background-color: #0f172a;
-  color: white;
-  padding: 1rem;
+  background-color: #0b0b0e;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.game-main h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: #ffffff;
+}
+
+/* Skill Cards Grid */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.skills-container > div {
+  background-color: #16161d;
+  border: 1px solid #232330;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  gap: 8px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.skills-container > div:hover {
+  border-color: #3b3b4f;
+  transform: translateY(-2px);
+}
+
+.skills-container h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.skills-container span {
+  font-size: 0.85rem;
+  color: #a1a1aa;
+}
+
+/* Progress Bar (Gold Fill) */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #0f0f14;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid #232330;
+  margin-top: 6px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #d97706, #f59e0b);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+/* Visibility Control */
+.hidden {
+  display: none !important;
 }

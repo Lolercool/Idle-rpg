@@ -18,19 +18,101 @@
     </header>
 
     <!-- Left Sidebar -->
+
     <aside class="game-sidebar">
+      <h2>Character</h2>
+      <div class="character-button-container">
+        <button id="profile-btn">Profile</button>
+        <button id="inventory-btn">Inventory</button>
+        <button id="skills-btn">Skills</button>
+        <button id="collections-btn">Collections</button>
+        <button id="map-btn">Map</button>
+      </div>
+
       <h2>Activities</h2>
-      <div class="button-container">
-        <button class="nav-btn">Woodcutting</button>
-        <button class="nav-btn">Mining</button>
-        <button class="nav-btn">Combat</button>
+      <div class="activities-button-container">
+        <button id="farming-btn">Farming</button>
+        <button id="mining-btn">Mining</button>
+        <button id="foraging-btn">Foraging</button>
+        <button id="combat-btn">Combat</button>
+        <button id="fishing-btn">Fishing</button>
       </div>
     </aside>
 
     <!-- Main Gameplay Screen -->
     <main class="game-main">
-      <h2>Main View</h2>
-      <p>Select an activity from the left to begin.</p>
+      <div id="profile-main-view" class="">
+        <h2>Profile</h2>
+      </div>
+      <div id="inventory-main-view" class="hidden">
+        <h2>Inventory</h2>
+      </div>
+      <div id="skills-main-view" class="hidden">
+        <h2>Skills</h2>
+        <div class="skills-container">
+          <div class="skill-card">
+            <h3>Farming</h3>
+            <span id="farming-level">0</span>
+            <span id="farming-xp">0</span> / <span id="farming-next-xp">50</span>
+            <div class="progress-bar">
+              <div id="farming-bar" class="progress-fill"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Mining</h3>
+            <span id="mining-level">0</span>
+            <span id="mining-xp">0</span> / <span id="mining-next-xp">50</span>
+            <div class="progress-bar">
+              <div id="mining-bar" class="progress-fill"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Foraging</h3>
+            <span id="foraging-level">0</span>
+            <span id="foraging-xp">0</span> / <span id="foraging-next-xp">50</span>
+            <div class="progress-bar">
+              <div id="foraging-bar" class="progress-fill"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Combat</h3>
+            <span id="combat-level">0</span>
+            <span id="combat-xp">0</span> / <span id="combat-next-xp">50</span>
+            <div class="progress-bar">
+              <div id="combat-bar" class="progress-fill"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>Fishing</h3>
+            <span id="fishing-level">0</span>
+            <span id="fishing-xp">0</span> / <span id="fishing-next-xp">50</span>
+            <div class="progress-bar">
+              <div id="fishing-bar" class="progress-fill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="collections-main-view" class="hidden">
+        <h2>Collections</h2>
+      </div>
+      <div id="map-main-view" class="hidden">
+        <h2>Map</h2>
+      </div>
+      <div id="farming-main-view" class="hidden">
+        <h2>Farming</h2>
+      </div>
+      <div id="mining-main-view" class="hidden">
+        <h2>Mining</h2>
+      </div>
+      <div id="foraging-main-view" class="hidden">
+        <h2>Foraging</h2>
+      </div>
+      <div id="combat-main-view" class="hidden">
+        <h2>Combat</h2>
+      </div>
+      <div id="fishing-main-view" class="hidden">
+        <h2>Fishing</h2>
+      </div>
     </main>
     </div>
     <script src="script.js"></script>
