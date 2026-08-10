@@ -46,7 +46,60 @@
       </div>
       <div id="inventory-main-view" class="hidden">
         <h2>Inventory</h2>
-      </div>
+        <nav>
+          <button id="equipped-btn">Equipped</button>
+          <button id="wardrobe-btn">Wardrobe</button>
+          <button id="accessories-btn">Accessories</button>
+          <button id="items-btn">Items</button>
+          <button id="storage-btn">Storage</button>
+          <button id="pets-btn">Pets</button>
+        </nav>
+        <div>
+          <div id="tab-equipped" class="">
+            <!-- Armor Group -->
+            <div class="equipped-group">
+              <h3>Armor</h3>
+              <div class="equipped-group-slots">
+                <div class="item-slot" id="slot-helmet">Helmet</div>
+                <div class="item-slot" id="slot-chestplate">Chestplate</div>
+                <div class="item-slot" id="slot-leggings">Leggings</div>
+                <div class="item-slot" id="slot-boots">Boots</div>
+              </div>
+            </div>
+            <!-- Weapons Group -->
+            <div class="equipped-group">
+              <h3>Weapons</h3>
+              <div class="equipped-group-slots">
+                <div class="item-slot" id="slot-sword">Sword</div>
+                <div class="item-slot" id="slot-bow">Bow</div>
+              </div>
+              
+            </div>
+            <!-- Tools Group -->
+            <div class="equipped-group">
+              <h3>Tools</h3>
+              <div class="equipped-group-slots">
+                <div class="item-slot" id="slot-pickaxe">Pickaxe</div>
+                <div class="item-slot" id="slot-axe">Axe</div>
+                <div class="item-slot" id="slot-hoe">Hoe</div>
+                <div class="item-slot" id="slot-rod">Fishing Rod</div>
+              </div>
+            </div>
+            <!-- Pet Group -->
+            <div class="equipped-group">
+              <h3>Pet</h3>
+              <div class="equipped-group-slots">
+                <div class="item-slot" id="slot-pet">Pet</div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div id="tab-wardrobe" class="hidden"></div>
+          <div id="tab-accessories" class="hidden"></div>
+          <div id="tab-items" class="hidden"></div>
+          <div id="tab-storage" class="hidden"></div>
+          <div id="tab-pets" class="hidden"></div>
+        </div>
       <div id="skills-main-view" class="hidden">
         <h2>Skills</h2>
         <div class="skills-container">

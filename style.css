@@ -110,6 +110,12 @@ body {
   color: #fbbf24;
 }
 
+.game-sidebar button.active {
+  background-color: #24221b;
+  border-color: #d97706;
+  color: #fbbf24;
+}
+
 /* Main Gameplay Area */
 .game-main {
   grid-area: main;
@@ -175,6 +181,93 @@ body {
   background: linear-gradient(90deg, #d97706, #f59e0b);
   border-radius: 999px;
   transition: width 0.3s ease;
+}
+
+/* --- Sub-Tab Navigation Bar --- */
+#inventory-main-view nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #2a2d32;
+  padding-bottom: 10px;
+}
+
+#inventory-main-view nav button {
+  background-color: #1a1d21;
+  color: #a0a5b1;
+  border: 1px solid #2a2d32;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#inventory-main-view nav button:hover {
+  background-color: #25282e;
+  color: #ffffff;
+}
+
+#inventory-main-view nav button.active {
+  background-color: #2d3139;
+  color: #55ff55; /* DisBlock active accent highlight */
+  border-color: #55ff55;
+}
+
+/* Container for all groups inside the Equipped tab */
+#tab-equipped {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Individual Group Cards (Armor, Weapons, Tools, Pet) */
+.equipped-group {
+  background-color: #15171a;
+  border: 1px solid #23262b;
+  border-radius: 8px;
+  padding: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.equipped-group h3 {
+  margin: 0 0 12px 0;
+  font-size: 0.85rem;
+  color: #8b929a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Wrapper for slot boxes inside a group */
+.equipped-group-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* --- Universal Square Item Slot --- */
+.item-slot {
+  width: 56px;
+  height: 56px;
+  background-color: #0d0e10;
+  border: 2px solid #25282e;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #555b66;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.item-slot:hover {
+  border-color: #4a505b;
+  background-color: #181a1e;
 }
 
 /* Visibility Control */
