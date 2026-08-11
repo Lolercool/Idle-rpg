@@ -8,7 +8,7 @@
 </head>
 <body>
      <div class="game-container">
-    
+   
     <!-- Top Header -->
     <header class="game-header">
       <h1>My Idle RPG</h1>
@@ -54,7 +54,6 @@
           <button id="storage-btn">Storage</button>
           <button id="pets-btn">Pets</button>
         </nav>
-        <div>
           <div id="tab-equipped" class="">
             <!-- Armor Group -->
             <div class="equipped-group">
@@ -73,7 +72,7 @@
                 <div class="item-slot" id="slot-sword">Sword</div>
                 <div class="item-slot" id="slot-bow">Bow</div>
               </div>
-              
+             
             </div>
             <!-- Tools Group -->
             <div class="equipped-group">
@@ -94,7 +93,6 @@
               </div>
             </div>
           </div>
-        </div>
           <div id="tab-wardrobe" class="hidden">
             <div class="wardrobe-card">
               <div class="wardrobe-card-header">
@@ -125,13 +123,13 @@
                     <div class="item-slot" id="w1-slot-axe">Axe</div>
                     <div class="item-slot" id="w1-slot-hoe">Hoe</div>
                     <div class="item-slot" id="w1-slot-shovel">Shovel</div>
-                    <div class="item-slot" id="w1-slot-rod">Fishing Rod</div> 
+                    <div class="item-slot" id="w1-slot-rod">Fishing Rod</div>
                   </div>
                 </div>
                 <div class="wardrobe-group">
                   <h4>Pet</h4>
                   <div class="equipped-group-slots">
-                    <div class="item-slot" id="slot-pet">Pet</div>
+                    <div class="item-slot" id="w1-slot-pet">Pet</div>
                   </div>
                 </div>
               </div>
@@ -242,7 +240,7 @@
           </div>
           <div id="tab-items" class="hidden">
             <div class="items-panel">
-              
+             
               <!-- Panel Header -->
               <div class="items-panel-header">
                 <div class="items-header-left">
@@ -275,33 +273,81 @@
 
               <!-- Grid Container for Dynamic Stackable Items -->
               <div class="stackable-items-container" id="stackable-items-list">
-                <!-- Dynamic item cards will be added here via JS later -->
-                <!-- You can temporarily put test cards here to preview step 2 & 3 -->
-                <!-- Example Item 1 (Common Oak Wood) -->
-                <div class="item-slot stackable-slot rarity-common">
-                  <span class="item-name">Oak Wood</span>
-                  <span class="item-qty">x150</span>
-                </div>
-
-                <!-- Example Item 2 (Uncommon Wheat) -->
-                <div class="item-slot stackable-slot rarity-uncommon">
-                  <span class="item-name">Wheat</span>
-                  <span class="item-qty">x94</span>
-                </div>
-
-                <!-- Example Item 3 (Rare Iron Ore) -->
-                <div class="item-slot stackable-slot rarity-rare">
-                  <span class="item-name">Iron Ore</span>
-                  <span class="item-qty">x12</span>
-                </div>
               </div>
             </div>
           </div>
           <div id="tab-storage" class="hidden">
+            <div class="items-panel">
+              <!-- Panel Header -->
+              <div class="storage-panel-header">
+                <div class="storage-header-left">
+                  <h3>Resources & Materials</h3>
+                  <span class="slot-count" id="storage-total-count">3 Unique Items</span>
+                </div>
 
+                <div class="storage-controls">
+                  <!-- Search Bar -->
+                  <input type="text" id="storage-search-input" class="storage-search" placeholder="Search items..." />
+
+                  <!-- Category Filter -->
+                  <select id="storage-category-filter" class="storage-select">
+                    <option value="all">All Categories</option>
+                    <option value="Armor">Armor</option>
+                    <option value="Weapons">Weapons</option>
+                    <option value="Tools">Tools</option>
+                  </select>
+
+                  <!-- Sort Dropdown -->
+                  <select id="storage-sort-select" class="storage-select">
+                    <option value="name-asc">Name (A-Z)</option>
+                    <option value="rarity-desc">Highest Rarity</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Grid Container for Dynamic NonStackable Items -->
+              <div class="storage-container" id="storage-list">
+              </div>
+            </div>
           </div>
           <div id="tab-pets" class="hidden">
+            <div class="pets-panel">
+             
+              <!-- Panel Header -->
+              <div class="pets-panel-header">
+                <div class="pets-header-left">
+                  <h3>Pets & Companions</h3>
+                  <span class="slot-count" id="pets-total-count">2 Pets</span>
+                </div>
 
+                <div class="pets-controls">
+                  <!-- Search Bar -->
+                  <input type="text" id="pets-search-input" class="pets-search" placeholder="Search pets..." />
+
+                  <!-- Category/Rarity Filter -->
+                  <select id="pets-category-filter" class="pets-select">
+                    <option value="all">All Rarities</option>
+                    <option value="common">Common</option>
+                    <option value="uncommon">Uncommon</option>
+                    <option value="rare">Rare</option>
+                    <option value="epic">Epic</option>
+                    <option value="legendary">Legendary</option>
+                    <option value="mythic">Mythic</option>
+                  </select>
+
+                  <!-- Sort Dropdown -->
+                  <select id="pets-sort-select" class="pets-select">
+                    <option value="level-desc">Highest Level</option>
+                    <option value="rarity-desc">Highest Rarity</option>
+                    <option value="name-asc">Name (A-Z)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Grid Container for Dynamic Pets -->
+              <div class="pets-container" id="pets-list">
+              </div>
+            </div>
           </div>
         </div>
       <div id="skills-main-view" class="hidden">
@@ -373,5 +419,6 @@
     </main>
     </div>
     <script src="script.js"></script>
+    <script type="module" src="inventory.js"></script>
 </body>
-</html>
+</html> 
