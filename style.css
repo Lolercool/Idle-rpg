@@ -428,6 +428,157 @@ body {
   font-weight: 600;
 }
 
+.items-panel {
+  background-color: #15171a;
+  border: 1px solid #23262b;
+  border-radius: 8px;
+  padding: 16px;
+  width: 100%;
+}
+
+.items-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #23262b;
+}
+
+/* Horizontal wrapping grid */
+.stackable-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+/* Base stackable slot styling */
+.item-slot.stackable-slot {
+  width: 64px;
+  height: 64px;
+  background-color: #1a1c23;
+  border: 1px solid #282b36;
+  border-radius: 6px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.15s ease;
+}
+
+.item-slot.stackable-slot:hover {
+  background-color: #222530;
+  transform: translateY(-2px);
+}
+
+.item-slot.stackable-slot .item-name {
+  font-size: 0.65rem;
+  color: #c2c5d0;
+  text-align: center;
+  word-break: break-word;
+  padding: 4px;
+}
+
+/* Bottom-right quantity pill badge matching the reference image */
+.item-slot.stackable-slot .item-qty {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  background-color: #0a0b0e;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+/* Bottom colored border accent per rarity tier */
+.item-slot.rarity-common {
+  border-bottom: 3px solid #b0b0b0;
+}
+
+.item-slot.rarity-uncommon {
+  border-bottom: 3px solid #55ff55;
+}
+
+.item-slot.rarity-rare {
+  border-bottom: 3px solid #55ffff;
+}
+
+.item-slot.rarity-epic {
+  border-bottom: 3px solid #aa00aa;
+}
+
+.item-slot.rarity-legendary {
+  border-bottom: 3px solid #ffaa00;
+}
+
+.item-slot.rarity-mythic {
+  border-bottom: 3px solid #ff55ff;
+}
+
+/* Header alignment with controls */
+.items-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #23262b;
+  flex-wrap: wrap;
+}
+
+.items-header-left {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.items-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Search Input Styling */
+.items-search {
+  background-color: #111215;
+  border: 1px solid #282b36;
+  border-radius: 6px;
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.items-search:focus {
+  border-color: #4a505b;
+}
+
+/* Filter & Sort Dropdowns Styling */
+.items-select {
+  background-color: #111215;
+  border: 1px solid #282b36;
+  border-radius: 6px;
+  color: #c2c5d0;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.items-select:hover,
+.items-select:focus {
+  border-color: #4a505b;
+}
+
 /* Visibility Control */
 .hidden {
   display: none !important;

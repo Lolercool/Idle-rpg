@@ -159,7 +159,7 @@
                     <span class="tuning-active" id="active-tuning-text">None</span>
                   </div>
                 </div>
-                
+
                 <div class="equipped-group-slots">
                   <!-- 10 Initial Active Slots -->
                   <div class="item-slot" id="acc-bag-1"></div>
@@ -241,7 +241,61 @@
             </div>
           </div>
           <div id="tab-items" class="hidden">
+            <div class="items-panel">
+              
+              <!-- Panel Header -->
+              <div class="items-panel-header">
+                <div class="items-header-left">
+                  <h3>Resources & Materials</h3>
+                  <span class="slot-count" id="items-total-count">3 Unique Items</span>
+                </div>
 
+                <div class="items-controls">
+                  <!-- Search Bar -->
+                  <input type="text" id="items-search-input" class="items-search" placeholder="Search items..." />
+
+                  <!-- Category Filter -->
+                  <select id="items-category-filter" class="items-select">
+                    <option value="all">All Categories</option>
+                    <option value="farming">Farming</option>
+                    <option value="mining">Mining</option>
+                    <option value="foraging">Foraging</option>
+                    <option value="combat">Combat</option>
+                  </select>
+
+                  <!-- Sort Dropdown -->
+                  <select id="items-sort-select" class="items-select">
+                    <option value="quantity-desc">Highest Amount</option>
+                    <option value="quantity-asc">Lowest Amount</option>
+                    <option value="name-asc">Name (A-Z)</option>
+                    <option value="rarity-desc">Highest Rarity</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Grid Container for Dynamic Stackable Items -->
+              <div class="stackable-items-container" id="stackable-items-list">
+                <!-- Dynamic item cards will be added here via JS later -->
+                <!-- You can temporarily put test cards here to preview step 2 & 3 -->
+                <!-- Example Item 1 (Common Oak Wood) -->
+                <div class="item-slot stackable-slot rarity-common">
+                  <span class="item-name">Oak Wood</span>
+                  <span class="item-qty">x150</span>
+                </div>
+
+                <!-- Example Item 2 (Uncommon Wheat) -->
+                <div class="item-slot stackable-slot rarity-uncommon">
+                  <span class="item-name">Wheat</span>
+                  <span class="item-qty">x94</span>
+                </div>
+
+                <!-- Example Item 3 (Rare Iron Ore) -->
+                <div class="item-slot stackable-slot rarity-rare">
+                  <span class="item-name">Iron Ore</span>
+                  <span class="item-qty">x12</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div id="tab-storage" class="hidden">
 
