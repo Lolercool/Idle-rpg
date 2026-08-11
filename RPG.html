@@ -82,6 +82,7 @@
                 <div class="item-slot" id="slot-pickaxe">Pickaxe</div>
                 <div class="item-slot" id="slot-axe">Axe</div>
                 <div class="item-slot" id="slot-hoe">Hoe</div>
+                <div class="item-slot" id="slot-shovel">Shovel</div>
                 <div class="item-slot" id="slot-rod">Fishing Rod</div>
               </div>
             </div>
@@ -94,11 +95,160 @@
             </div>
           </div>
         </div>
-          <div id="tab-wardrobe" class="hidden"></div>
-          <div id="tab-accessories" class="hidden"></div>
-          <div id="tab-items" class="hidden"></div>
-          <div id="tab-storage" class="hidden"></div>
-          <div id="tab-pets" class="hidden"></div>
+          <div id="tab-wardrobe" class="hidden">
+            <div class="wardrobe-card">
+              <div class="wardrobe-card-header">
+                <h3>Set 1</h3>
+                <button class="equip-btn">Equip</button>
+              </div>
+              <div class="wardrobe-card-body">
+                <div class="wardrobe-group">
+                  <h4>Armor</h4>
+                  <div class="equipped-group-slots">
+                    <div class="item-slot" id="w1-slot-helmet">Helmet</div>
+                    <div class="item-slot" id="w1-slot-chestplate">Chestplate</div>
+                    <div class="item-slot" id="w1-slot-leggings">Leggings</div>
+                    <div class="item-slot" id="w1-slot-boots">Boots</div>
+                  </div>
+                </div>
+                <div class="wardrobe-group">
+                  <h4>Weapons</h4>
+                  <div class="equipped-group-slots">
+                  <div class="item-slot" id="w1-slot-sword">Sword</div>
+                  <div class="item-slot" id="w1-slot-bow">Bow</div>
+                  </div>
+                </div>
+                <div class="wardrobe-group">
+                  <h4>Tools</h4>
+                  <div class="equipped-group-slots">
+                    <div class="item-slot" id="w1-slot-pickaxe">Pickaxe</div>
+                    <div class="item-slot" id="w1-slot-axe">Axe</div>
+                    <div class="item-slot" id="w1-slot-hoe">Hoe</div>
+                    <div class="item-slot" id="w1-slot-shovel">Shovel</div>
+                    <div class="item-slot" id="w1-slot-rod">Fishing Rod</div> 
+                  </div>
+                </div>
+                <div class="wardrobe-group">
+                  <h4>Pet</h4>
+                  <div class="equipped-group-slots">
+                    <div class="item-slot" id="slot-pet">Pet</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="tab-accessories" class="hidden">
+            <div class="accessories-container">
+
+              <!-- Left Column: Accessory Bag -->
+              <div class="accessories-bag">
+                <div class="accessories-panel-header">
+                  <div>
+                    <h3>Accessory Bag</h3>
+                    <span class="slot-count">0 / 10</span>
+                  </div>
+                  <button class="upgrade-btn">Expand Bag</button>
+                </div>
+                <div class="magical-power-panel">
+                  <div class="mp-header">
+                    <span class="mp-label">Magical Power</span>
+                    <span class="mp-value" id="mp-total">0 MP</span>
+                  </div>
+                  <div class="mp-tuning">
+                    <span>Selected Tuning:</span>
+                    <span class="tuning-active" id="active-tuning-text">None</span>
+                  </div>
+                </div>
+                
+                <div class="equipped-group-slots">
+                  <!-- 10 Initial Active Slots -->
+                  <div class="item-slot" id="acc-bag-1"></div>
+                  <div class="item-slot" id="acc-bag-2"></div>
+                  <div class="item-slot" id="acc-bag-3"></div>
+                  <div class="item-slot" id="acc-bag-4"></div>
+                  <div class="item-slot" id="acc-bag-5"></div>
+                  <div class="item-slot" id="acc-bag-6"></div>
+                  <div class="item-slot" id="acc-bag-7"></div>
+                  <div class="item-slot" id="acc-bag-8"></div>
+                  <div class="item-slot" id="acc-bag-9"></div>
+                  <div class="item-slot" id="acc-bag-10"></div>
+                </div>
+              </div>
+
+              <!-- Right Column: Accessory Storage -->
+              <div class="accessories-storage">
+                <div class="accessories-panel-header">
+                  <div>
+                    <h3>Accessory Storage</h3>
+                    <span class="slot-count">0 / 50</span>
+                  </div>
+                </div>
+                <div class="equipped-group-slots">
+                  <!-- Storage Slots (1 to 50) -->
+                  <div class="item-slot" id="acc-storage-1"></div>
+                  <div class="item-slot" id="acc-storage-2"></div>
+                  <div class="item-slot" id="acc-storage-3"></div>
+                  <div class="item-slot" id="acc-storage-4"></div>
+                  <div class="item-slot" id="acc-storage-5"></div>
+                  <div class="item-slot" id="acc-storage-6"></div>
+                  <div class="item-slot" id="acc-storage-7"></div>
+                  <div class="item-slot" id="acc-storage-8"></div>
+                  <div class="item-slot" id="acc-storage-9"></div>
+                  <div class="item-slot" id="acc-storage-10"></div>
+                  <div class="item-slot" id="acc-storage-11"></div>
+                  <div class="item-slot" id="acc-storage-12"></div>
+                  <div class="item-slot" id="acc-storage-13"></div>
+                  <div class="item-slot" id="acc-storage-14"></div>
+                  <div class="item-slot" id="acc-storage-15"></div>
+                  <div class="item-slot" id="acc-storage-16"></div>
+                  <div class="item-slot" id="acc-storage-17"></div>
+                  <div class="item-slot" id="acc-storage-18"></div>
+                  <div class="item-slot" id="acc-storage-19"></div>
+                  <div class="item-slot" id="acc-storage-20"></div>
+                  <div class="item-slot" id="acc-storage-21"></div>
+                  <div class="item-slot" id="acc-storage-22"></div>
+                  <div class="item-slot" id="acc-storage-23"></div>
+                  <div class="item-slot" id="acc-storage-24"></div>
+                  <div class="item-slot" id="acc-storage-25"></div>
+                  <div class="item-slot" id="acc-storage-26"></div>
+                  <div class="item-slot" id="acc-storage-27"></div>
+                  <div class="item-slot" id="acc-storage-28"></div>
+                  <div class="item-slot" id="acc-storage-29"></div>
+                  <div class="item-slot" id="acc-storage-30"></div>
+                  <div class="item-slot" id="acc-storage-31"></div>
+                  <div class="item-slot" id="acc-storage-32"></div>
+                  <div class="item-slot" id="acc-storage-33"></div>
+                  <div class="item-slot" id="acc-storage-34"></div>
+                  <div class="item-slot" id="acc-storage-35"></div>
+                  <div class="item-slot" id="acc-storage-36"></div>
+                  <div class="item-slot" id="acc-storage-37"></div>
+                  <div class="item-slot" id="acc-storage-38"></div>
+                  <div class="item-slot" id="acc-storage-39"></div>
+                  <div class="item-slot" id="acc-storage-40"></div>
+                  <div class="item-slot" id="acc-storage-41"></div>
+                  <div class="item-slot" id="acc-storage-42"></div>
+                  <div class="item-slot" id="acc-storage-43"></div>
+                  <div class="item-slot" id="acc-storage-44"></div>
+                  <div class="item-slot" id="acc-storage-45"></div>
+                  <div class="item-slot" id="acc-storage-46"></div>
+                  <div class="item-slot" id="acc-storage-47"></div>
+                  <div class="item-slot" id="acc-storage-48"></div>
+                  <div class="item-slot" id="acc-storage-49"></div>
+                  <div class="item-slot" id="acc-storage-50"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div id="tab-items" class="hidden">
+
+          </div>
+          <div id="tab-storage" class="hidden">
+
+          </div>
+          <div id="tab-pets" class="hidden">
+
+          </div>
         </div>
       <div id="skills-main-view" class="hidden">
         <h2>Skills</h2>

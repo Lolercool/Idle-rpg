@@ -270,6 +270,164 @@ body {
   background-color: #181a1e;
 }
 
+/* --- Wardrobe Tab Layout --- */
+.wardrobe-card {
+  background-color: #15171a;
+  border: 1px solid #23262b;
+  border-radius: 8px;
+  padding: 16px;
+  width: 100%;
+}
+
+.wardrobe-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.equip-btn {
+  padding: 6px 14px;
+  background-color: #1a1d21;
+  border: 1px solid #2a2d32;
+  border-radius: 6px;
+  color: #a0a5b1;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.equip-btn:hover {
+  background-color: #25282e;
+  color: #ffffff;
+}
+
+.wardrobe-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wardrobe-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.wardrobe-group h4 {
+  margin: 0 0 8px 0;
+  font-size: 0.85rem;
+  color: #8b929a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.wardrobe-group > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* --- Accessories Tab Layout --- */
+.accessories-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.accessories-bag,
+.accessories-storage {
+  background-color: #15171a;
+  border: 1px solid #23262b;
+  border-radius: 8px;
+  padding: 16px;
+  width: 100%;
+}
+
+.accessories-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.accessories-panel-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.slot-count {
+  font-size: 0.8rem;
+  color: #8b929a;
+  font-weight: 500;
+}
+
+.upgrade-btn {
+  padding: 6px 12px;
+  background-color: #1a1d21;
+  border: 1px solid #2a2d32;
+  border-radius: 6px;
+  color: #f59e0b;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.upgrade-btn:hover {
+  background-color: #25282e;
+  border-color: #f59e0b;
+  color: #ffffff;
+}
+
+/* --- Magical Power Panel --- */
+.magical-power-panel {
+  background-color: #0d0e10;
+  border: 1px solid #25282e;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mp-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #a0a5b1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mp-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #aa00aa; /* SkyBlock Mythic/Magical Purple Accent */
+  text-shadow: 0 0 8px rgba(170, 0, 170, 0.3);
+}
+
+.mp-tuning {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #71717a;
+  border-top: 1px solid #1a1d21;
+  padding-top: 6px;
+}
+
+.tuning-active {
+  color: #55ff55; /* Active stat highlight */
+  font-weight: 600;
+}
+
 /* Visibility Control */
 .hidden {
   display: none !important;
