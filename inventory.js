@@ -1,0 +1,64 @@
+import { items } from "./items.js";
+
+let playerInventory = [
+    {
+        itemId: "wheat",
+        quantity: 347,
+    },
+    {
+        itemId: "carrot",
+        quantity: 12,
+    },
+    {
+        itemId: "iron_ore",
+        quantity: 86,
+    },
+    {
+        itemId: "gold_ore",
+        quantity: 3,
+    },
+    {
+        itemId: "oak_log",
+        quantity: 152,
+    },
+    {
+        itemId: "goblin_ear",
+        quantity: 7,
+    },
+    {
+        itemId: "iron_sword",
+        instanceId: "iron_sword_1",
+    },
+    {
+        itemId: "iron_sword",
+        instanceId: "iron_sword_2",
+    },
+    {
+        itemId: "steel_sword",
+        instanceId: "steel_sword_1",
+    },
+    {
+        itemId: "iron_helmet",
+        instanceId: "iron_helmet_1",
+    },
+    {
+        itemId: "explorer_boots",
+        instanceId: "explorer_boots_1",
+    },
+    {
+        itemId: "iron_pickaxe",
+        instanceId: "iron_pickaxe_1",
+    },
+    {
+        itemId: "iron_pickaxe",
+        instanceId: "iron_pickaxe_2",
+    },
+    {
+        itemId: "steel_axe",
+        instanceId: "steel_axe_1",
+    },
+    {
+        itemId: "steel_axe",
+        instanceId: "steel_axe_2",
+    },
+]

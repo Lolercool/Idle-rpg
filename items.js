@@ -1,4 +1,4 @@
-let items = [
+export let items = [
     {
         id: "wheat",
         name: "Wheat",
