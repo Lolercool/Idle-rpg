@@ -51,7 +51,7 @@ body {
 }
 
 .game-header span {
-  color: #f59e0b; /* Gold accent */
+  color: #f59e0b;
   font-weight: 600;
 }
 
@@ -164,7 +164,7 @@ body {
   color: #a1a1aa;
 }
 
-/* Progress Bar (Gold Fill) */
+/* Progress Bar */
 .progress-bar {
   width: 100%;
   height: 8px;
@@ -183,7 +183,7 @@ body {
   transition: width 0.3s ease;
 }
 
-/* --- Sub-Tab Navigation Bar --- */
+/* Inventory Sub-Tab Navigation */
 #inventory-main-view nav {
   display: flex;
   gap: 8px;
@@ -210,11 +210,11 @@ body {
 
 #inventory-main-view nav button.active {
   background-color: #2d3139;
-  color: #55ff55; /* DisBlock active accent highlight */
+  color: #55ff55;
   border-color: #55ff55;
 }
 
-/* Container for all groups inside the Equipped tab */
+/* Equipped Tab */
 #tab-equipped {
   display: flex;
   flex-direction: column;
@@ -222,7 +222,6 @@ body {
   width: 100%;
 }
 
-/* Individual Group Cards (Armor, Weapons, Tools, Pet) */
 .equipped-group {
   background-color: #15171a;
   border: 1px solid #23262b;
@@ -240,14 +239,13 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* Wrapper for slot boxes inside a group */
 .equipped-group-slots {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-/* --- Universal Square Item Slot --- */
+/* Universal Item Slot */
 .item-slot {
   width: 56px;
   height: 56px;
@@ -270,7 +268,7 @@ body {
   background-color: #181a1e;
 }
 
-/* --- Wardrobe Tab Layout --- */
+/* Wardrobe */
 .wardrobe-card {
   background-color: #15171a;
   border: 1px solid #23262b;
@@ -326,7 +324,7 @@ body {
   gap: 10px;
 }
 
-/* --- Accessories Tab Layout --- */
+/* Accessories */
 .accessories-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -381,7 +379,7 @@ body {
   color: #ffffff;
 }
 
-/* --- Magical Power Panel --- */
+/* Magical Power Panel */
 .magical-power-panel {
   background-color: #0d0e10;
   border: 1px solid #25282e;
@@ -410,7 +408,7 @@ body {
 .mp-value {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #aa00aa; /* SkyBlock Mythic/Magical Purple Accent */
+  color: #aa00aa;
   text-shadow: 0 0 8px rgba(170, 0, 170, 0.3);
 }
 
@@ -424,10 +422,15 @@ body {
 }
 
 .tuning-active {
-  color: #55ff55; /* Active stat highlight */
+  color: #55ff55;
   font-weight: 600;
 }
 
+/* =========================================================
+   ITEMS + STORAGE
+   ========================================================= */
+
+/* Main Panel */
 .items-panel {
   background-color: #15171a;
   border: 1px solid #23262b;
@@ -436,25 +439,86 @@ body {
   width: 100%;
 }
 
-.items-panel-header {
+/* Items and Storage Headers */
+.items-panel-header,
+.storage-panel-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   margin-bottom: 16px;
-  padding-bottom: 8px;
+  padding-bottom: 12px;
   border-bottom: 1px solid #23262b;
+  flex-wrap: wrap;
 }
 
-/* Horizontal wrapping grid */
-.stackable-items-container {
+/* Left Header Section */
+.items-header-left,
+.storage-header-left {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+/* Controls */
+.items-controls,
+.storage-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Search Inputs */
+.items-search,
+.storage-search {
+  background-color: #111215;
+  border: 1px solid #282b36;
+  border-radius: 6px;
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.items-search:focus,
+.storage-search:focus {
+  border-color: #4a505b;
+}
+
+/* Dropdowns */
+.items-select,
+.storage-select {
+  background-color: #111215;
+  border: 1px solid #282b36;
+  border-radius: 6px;
+  color: #c2c5d0;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.items-select:hover,
+.items-select:focus,
+.storage-select:hover,
+.storage-select:focus {
+  border-color: #4a505b;
+}
+
+/* Item Grids */
+.stackable-items-container,
+.storage-container {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   justify-content: flex-start;
 }
 
-/* Base stackable slot styling */
-.item-slot.stackable-slot {
+/* Stackable Items + Storage Equipment Slots */
+.item-slot.stackable-slot,
+.storage-container .item-slot {
   width: 64px;
   height: 64px;
   background-color: #1a1c23;
@@ -469,12 +533,16 @@ body {
   transition: transform 0.1s ease, background-color 0.15s ease;
 }
 
-.item-slot.stackable-slot:hover {
+/* Item Hover */
+.item-slot.stackable-slot:hover,
+.storage-container .item-slot:hover {
   background-color: #222530;
   transform: translateY(-2px);
 }
 
-.item-slot.stackable-slot .item-name {
+/* Item Names */
+.item-slot.stackable-slot .item-name,
+.storage-container .item-slot .item-name {
   font-size: 0.65rem;
   color: #c2c5d0;
   text-align: center;
@@ -482,7 +550,7 @@ body {
   padding: 4px;
 }
 
-/* Bottom-right quantity pill badge matching the reference image */
+/* Quantity Badge */
 .item-slot.stackable-slot .item-qty {
   position: absolute;
   bottom: 3px;
@@ -496,7 +564,7 @@ body {
   line-height: 1;
 }
 
-/* Bottom colored border accent per rarity tier */
+/* Rarity Borders */
 .item-slot.rarity-common {
   border-bottom: 3px solid #b0b0b0;
 }
@@ -521,65 +589,7 @@ body {
   border-bottom: 3px solid #ff55ff;
 }
 
-/* Header alignment with controls */
-.items-panel-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #23262b;
-  flex-wrap: wrap;
-}
-
-.items-header-left {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-}
-
-.items-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Search Input Styling */
-.items-search {
-  background-color: #111215;
-  border: 1px solid #282b36;
-  border-radius: 6px;
-  color: #ffffff;
-  padding: 6px 12px;
-  font-size: 0.8rem;
-  outline: none;
-  transition: border-color 0.15s ease;
-}
-
-.items-search:focus {
-  border-color: #4a505b;
-}
-
-/* Filter & Sort Dropdowns Styling */
-.items-select {
-  background-color: #111215;
-  border: 1px solid #282b36;
-  border-radius: 6px;
-  color: #c2c5d0;
-  padding: 6px 10px;
-  font-size: 0.8rem;
-  outline: none;
-  cursor: pointer;
-  transition: border-color 0.15s ease;
-}
-
-.items-select:hover,
-.items-select:focus {
-  border-color: #4a505b;
-}
-
-/* Visibility Control */
+/* Visibility */
 .hidden {
   display: none !important;
 }

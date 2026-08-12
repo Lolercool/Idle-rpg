@@ -62,3 +62,56 @@ let playerInventory = [
         instanceId: "steel_axe_2",
     },
 ]
+
+let stackableItemsList = document.getElementById("stackable-items-list");
+let storageList = document.getElementById("storage-list");
+
+let itemsTotalCount = document.getElementById("items-total-count");
+let storageTotalCount = document.getElementById("storage-total-count");
+
+let stackableCount = 0;
+let storageCount = 0;
+
+playerInventory.forEach(inventoryItem => {
+    let itemData = items.find(item => item.id === inventoryItem.itemId);
+
+    if (itemData.stackable === true) {
+        stackableCount++;
+
+        let slot = document.createElement("div");
+        slot.classList.add("item-slot", "stackable-slot");
+        slot.classList.add("rarity-" + itemData.rarity);
+
+        let itemName = document.createElement("span");
+        itemName.classList.add("item-name");
+        itemName.textContent = itemData.name;
+
+        let itemQuantity = document.createElement("span");
+        itemQuantity.classList.add("item-qty");
+        itemQuantity.textContent = inventoryItem.quantity;
+
+        slot.appendChild(itemName);
+        slot.appendChild(itemQuantity);
+
+        stackableItemsList.appendChild(slot);
+    }
+
+    if (itemData.stackable === false) {
+        storageCount++;
+
+        let slot = document.createElement("div");
+        slot.classList.add("item-slot");
+        slot.classList.add("rarity-" + itemData.rarity);
+
+        let itemName = document.createElement("span");
+        itemName.classList.add("item-name");
+        itemName.textContent = itemData.name;
+
+        slot.appendChild(itemName);
+
+        storageList.appendChild(slot);
+    }
+});
+
+itemsTotalCount.textContent = stackableCount + " Unique Items";
+storageTotalCount.textContent = storageCount + " Items";
