@@ -54,7 +54,7 @@ export let items = [
         type: "sword",
         category: "weapons",
         rarity: "common",
-        stackable: false
+        stackable: false,
     },
     {
         id: "steel_sword",
@@ -62,7 +62,7 @@ export let items = [
         type: "sword",
         category: "weapons",
         rarity: "uncommon",
-        stackable: false
+        stackable: false,
     },
     {
         id: "iron_helmet",
@@ -70,7 +70,7 @@ export let items = [
         type: "helmet",
         category: "armor",
         rarity: "common",
-        stackable: false
+        stackable: false,
     },
     {
         id: "explorer_boots",
@@ -78,7 +78,7 @@ export let items = [
         type: "boots",
         category: "armor",
         rarity: "uncommon",
-        stackable: false
+        stackable: false,
     },
     {
         id: "iron_pickaxe",
@@ -86,7 +86,7 @@ export let items = [
         type: "pickaxe",
         category: "tools",
         rarity: "common",
-        stackable: false
+        stackable: false,
     },
     {
         id: "steel_axe",
@@ -94,6 +94,6 @@ export let items = [
         type: "axe",
         category: "tools",
         rarity: "uncommon",
-        stackable: false
+        stackable: false,
     },
 ];

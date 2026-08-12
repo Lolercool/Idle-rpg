@@ -61,7 +61,7 @@ let playerInventory = [
         itemId: "steel_axe",
         instanceId: "steel_axe_2",
     },
-]
+];
 
 let stackableItemsList = document.getElementById("stackable-items-list");
 let storageList = document.getElementById("storage-list");
