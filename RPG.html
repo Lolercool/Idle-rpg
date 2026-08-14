@@ -422,6 +422,25 @@
       </div>
     </main>
     </div>
+    
+    <div id="equipment-modal" class="hidden">
+      <div class="equipment-modal-panel">
+        <div class="equipment-modal-header">
+          <h2 class="equipment-modal-title">Storage</h2>
+          <button id="equipment-modal-close" type="button">x</button>
+        </div>
+        <input id="equipment-modal-search" type="text" placeholder="Search your storage...">
+        <div class="equipment-modal-equipped">
+          <h3 class="equipment-modal-section-title">Currently Equipped</h3>
+          <div id="equipment-modal-current-item"></div>
+        </div>
+        <div class="equipment-modal-available">
+          <h3 class="equipment-modal-section-title">Available Items</h3>
+          <div id="equipment-modal-items"></div>
+        </div>
+      </div>
+    </div>
+    
     <script src="script.js"></script>
     <script type="module" src="inventory.js"></script>
 </body>

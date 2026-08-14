@@ -63,6 +63,21 @@ let playerInventory = [
     },
 ];
 
+let playerEquipment = {
+    helmet: null,
+    chestplate: null,
+    leggings: null,
+    boots: null,
+    sword: null,
+    bow: null,
+    pickaxe: null,
+    axe: null,
+    hoe: null,
+    shovel: null,
+    rod: null,
+    pet: null,
+};
+
 let rarityOrder = {
     common: 1,
     uncommon: 2,
@@ -86,6 +101,18 @@ let storageSortSelect = document.getElementById("storage-sort-select");
 
 let itemsTotalCount = document.getElementById("items-total-count");
 let storageTotalCount = document.getElementById("storage-total-count");
+
+
+
+let equipmentModal = document.getElementById("equipment-modal");
+let equipmentModalClose = document.getElementById("equipment-modal-close");
+let equipmentModalSearch = document.getElementById("equipment-modal-search");
+let equipmentModalCurrentItem = document.getElementById("equipment-modal-current-item");
+let equipmentModalItems = document.getElementById("equipment-modal-items");
+
+let selectedEquipmentSlot = null;
+let equipmentSlots = document.querySelectorAll("#tab-equipped .item-slot");
+
 
 function renderItems() {
     stackableItemsList.innerHTML = "";
@@ -259,7 +286,145 @@ function renderStorage() {
 
     storageTotalCount.textContent = visibleStorage.length + " Items";
 }
-    
+
+equipmentSlots.forEach(slot => {
+    slot.addEventListener("click", () => {
+        let slotId = slot.id;
+        selectedEquipmentSlot = slotId.replace("slot-", "");
+        renderEquipmentModal();
+
+        equipmentModal.classList.remove("hidden");
+    });
+});
+
+equipmentModalClose.addEventListener("click", () => {
+    equipmentModal.classList.add("hidden");
+});
+
+equipmentModal.addEventListener("click", (event) => {
+    if (event.target === equipmentModal) {
+        equipmentModal.classList.add("hidden");
+    }
+});
+
+let equipmentModalEquipped = document.querySelector(".equipment-modal-equipped");
+
+function renderEquipmentModal() {
+    equipmentModalItems.innerHTML = "";
+    equipmentModalCurrentItem.innerHTML = "";
+
+    let equippedInstanceId = playerEquipment[selectedEquipmentSlot];
+    let compatibleItems = [];
+
+    if (equippedInstanceId === null) {
+        equipmentModalEquipped.classList.add("hidden");
+    } else {
+        equipmentModalEquipped.classList.remove("hidden");
+
+        let equippedInventoryItem = playerInventory.find(
+            inventoryItem => inventoryItem.instanceId === equippedInstanceId
+        );
+
+        let equippedItemData = items.find(
+            item => item.id === equippedInventoryItem.itemId
+        );
+
+        let slot = document.createElement("div");
+        slot.classList.add("item-slot");
+        slot.classList.add("rarity-" + equippedItemData.rarity);
+
+        let itemName = document.createElement("span");
+        itemName.classList.add("item-name");
+        itemName.textContent = equippedItemData.name;
+
+        let itemRarity = document.createElement("span");
+        itemRarity.classList.add("item-rarity");
+        itemRarity.textContent = equippedItemData.rarity.toUpperCase();
+
+        slot.appendChild(itemName);
+        slot.appendChild(itemRarity);
+
+        equipmentModalCurrentItem.appendChild(slot);
+
+        slot.addEventListener("dblclick", unequipItem);
+    }
+
+    playerInventory.forEach(inventoryItem => {
+        let itemData = items.find(
+            item => item.id === inventoryItem.itemId
+        );
+
+        if (itemData === undefined) {
+            return;
+        }
+
+        if (
+            itemData.type === selectedEquipmentSlot &&
+            inventoryItem.instanceId !== equippedInstanceId
+        ) {
+            compatibleItems.push(inventoryItem);
+        }
+    });
+
+    compatibleItems.forEach(inventoryItem => {
+        let itemData = items.find(
+            item => item.id === inventoryItem.itemId
+        );
+
+        let slot = document.createElement("div");
+        slot.classList.add("item-slot");
+        slot.classList.add("rarity-" + itemData.rarity);
+
+        let itemName = document.createElement("span");
+        itemName.classList.add("item-name");
+        itemName.textContent = itemData.name;
+
+        let itemRarity = document.createElement("span");
+        itemRarity.classList.add("item-rarity");
+        itemRarity.textContent = itemData.rarity.toUpperCase();
+
+        slot.appendChild(itemName);
+        slot.appendChild(itemRarity);
+
+        equipmentModalItems.appendChild(slot);
+
+        slot.addEventListener("dblclick", () => {
+            equipItem(inventoryItem.instanceId);
+        });
+    });
+}
+
+function renderEquipment() {
+    equipmentSlots.forEach(slot => {
+        let slotId = slot.id;
+        let equipmentType = slotId.replace("slot-", "");
+        let equippedInstanceId = playerEquipment[equipmentType];
+
+        if (equippedInstanceId === null) {
+            let defaultName = equipmentType.charAt(0).toUpperCase() + equipmentType.slice(1);
+            slot.textContent = defaultName;
+        } else {
+            let equippedInventoryItem = playerInventory.find(inventoryItem => inventoryItem.instanceId === equippedInstanceId);
+            let equippedItemData = items.find(item => item.id === equippedInventoryItem.itemId);
+
+            slot.textContent = equippedItemData.name;
+            slot.classList.add("rarity-" + equippedItemData.rarity);
+        }
+    });
+}
+
+function equipItem(instanceId) {
+    playerEquipment[selectedEquipmentSlot] = instanceId;
+    renderEquipmentModal();
+    renderEquipment()
+}
+
+function unequipItem() {
+    playerEquipment[selectedEquipmentSlot] = null;
+    renderEquipmentModal();
+    renderEquipment()
+}
+
 renderItems();
 renderStorage();
 
