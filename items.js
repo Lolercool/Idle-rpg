@@ -55,6 +55,10 @@ export let items = [
         category: "weapons",
         rarity: "common",
         stackable: false,
+        itemStats: {
+            damage: 10,
+            strength: 10,
+        },
     },
     {
         id: "steel_sword",
@@ -63,6 +67,11 @@ export let items = [
         category: "weapons",
         rarity: "uncommon",
         stackable: false,
+        itemStats: {
+            damage: 15,
+            strength: 10,
+            critical_damage: 5,
+        },
     },
     {
         id: "iron_helmet",
@@ -71,6 +80,10 @@ export let items = [
         category: "armor",
         rarity: "common",
         stackable: false,
+        itemStats: {
+            health: 10,
+            defense: 5,
+        },
     },
     {
         id: "explorer_boots",
@@ -79,6 +92,10 @@ export let items = [
         category: "armor",
         rarity: "uncommon",
         stackable: false,
+        itemStats: {
+            health: 20,
+            defense: 5,
+        },
     },
     {
         id: "iron_pickaxe",
@@ -87,6 +104,9 @@ export let items = [
         category: "tools",
         rarity: "common",
         stackable: false,
+        itemStats: {
+            mining_fortune: 10,
+        },
     },
     {
         id: "steel_axe",
@@ -95,5 +115,9 @@ export let items = [
         category: "tools",
         rarity: "uncommon",
         stackable: false,
+        itemStats: {
+            strength: 5,
+            foraging_fortune: 10,
+        },
     },
 ];

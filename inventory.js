@@ -1,4 +1,5 @@
 import { items } from "./items.js";
+import { calculatePlayerStats, playerStats } from "./stats.js";
 
 let playerInventory = [
     {
@@ -63,7 +64,7 @@ let playerInventory = [
     },
 ];
 
-let playerEquipment = {
+export let playerEquipment = {
     helmet: null,
     chestplate: null,
     leggings: null,
@@ -416,13 +417,15 @@ function renderEquipment() {
 function equipItem(instanceId) {
     playerEquipment[selectedEquipmentSlot] = instanceId;
     renderEquipmentModal();
-    renderEquipment()
+    renderEquipment();
+    calculatePlayerStats(playerEquipment, playerInventory);
 }
 
 function unequipItem() {
     playerEquipment[selectedEquipmentSlot] = null;
     renderEquipmentModal();
-    renderEquipment()
+    renderEquipment();
+    calculatePlayerStats(playerEquipment, playerInventory);
 }
 
 renderItems();
