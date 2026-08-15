@@ -400,6 +400,9 @@ function renderEquipment() {
         let slotId = slot.id;
         let equipmentType = slotId.replace("slot-", "");
         let equippedInstanceId = playerEquipment[equipmentType];
+        Object.keys(rarityOrder).forEach(rarityName => {
+            slot.classList.remove("rarity-" + rarityName);
+        });
 
         if (equippedInstanceId === null) {
             let defaultName = equipmentType.charAt(0).toUpperCase() + equipmentType.slice(1);
