@@ -55,22 +55,58 @@ const initialMainBtn = document.getElementById("profile-btn");
 if (initialMainBtn) initialMainBtn.classList.add("active");
 //#endregion
 
-//#region Inventory Sub-Tab Navigation
-const tabNames = ["equipped", "wardrobe", "accessories", "items", "storage", "pets"];
-const allInventoryTabs = [];
-const allTabButtons = [];
+//#region Profile Sub-Tab Navigation
+const profileTabNames = ["profiletab", "stats", "quests"];
+const allProfileTabs = [];
+const allProfileTabButtons = [];
 
-tabNames.forEach(name => {
+profileTabNames.forEach(name => {
+    const tab = document.getElementById(`tab-${name}`);
+    const btn = document.getElementById(`${name}-btn`);
+
+    if (tab) allProfileTabs.push(tab);
+    if (btn) allProfileTabButtons.push(btn);
+
+    if (btn && tab) {
+        btn.addEventListener("click", function() {
+            hideAllProfileTabs();
+            clearProfileTabButtonActive();
+
+            tab.classList.remove("hidden");
+            btn.classList.add("active");
+        });
+    }
+});
+
+function hideAllProfileTabs() {
+    allProfileTabs.forEach(tab => tab.classList.add("hidden"));
+}
+
+function clearProfileTabButtonActive() {
+    allProfileTabButtons.forEach(btn => btn.classList.remove("active"));
+}
+
+// Set initial active state for Profile sub-tab button
+const initialProfileTabBtn = document.getElementById("profiletab-btn");
+if (initialProfileTabBtn) initialProfileTabBtn.classList.add("active");
+//#endregion
+
+//#region Inventory Sub-Tab Navigation
+const inventoryTabNames = ["equipped", "wardrobe", "accessories", "items", "storage", "pets"];
+const allInventoryTabs = [];
+const allInventoryTabButtons = [];
+
+inventoryTabNames.forEach(name => {
     const tab = document.getElementById(`tab-${name}`);
     const btn = document.getElementById(`${name}-btn`);
 
     if (tab) allInventoryTabs.push(tab);
-    if (btn) allTabButtons.push(btn);
+    if (btn) allInventoryTabButtons.push(btn);
 
     if (btn && tab) {
         btn.addEventListener("click", function() {
             hideAllInventoryTabs();
-            clearTabButtonActive();
+            clearInventoryTabButtonActive();
 
             tab.classList.remove("hidden");
             btn.classList.add("active");
@@ -82,13 +118,49 @@ function hideAllInventoryTabs() {
     allInventoryTabs.forEach(tab => tab.classList.add("hidden"));
 }
 
-function clearTabButtonActive() {
-    allTabButtons.forEach(btn => btn.classList.remove("active"));
+function clearInventoryTabButtonActive() {
+    allInventoryTabButtons.forEach(btn => btn.classList.remove("active"));
 }
 
 // Set initial active state for Equipped sub-tab button
-const initialTabBtn = document.getElementById("equipped-btn");
-if (initialTabBtn) initialTabBtn.classList.add("active");
+const initialInventoryTabBtn = document.getElementById("equipped-btn");
+if (initialInventoryTabBtn) initialInventoryTabBtn.classList.add("active");
+//#endregion
+
+//#region Collections Sub-Tab Navigation
+const collectionsTabNames = ["farmingcollection", "miningcollection", "foragingcollection", "combatcollection", "fishingcollection"];
+const allCollectionsTabs = [];
+const allCollectionsTabButtons = [];
+
+collectionsTabNames.forEach(name => {
+    const tab = document.getElementById(`tab-${name}`);
+    const btn = document.getElementById(`${name}-btn`);
+
+    if (tab) allCollectionsTabs.push(tab);
+    if (btn) allCollectionsTabButtons.push(btn);
+
+    if (btn && tab) {
+        btn.addEventListener("click", function() {
+            hideAllCollectionsTabs();
+            clearCollectionsTabButtonActive();
+
+            tab.classList.remove("hidden");
+            btn.classList.add("active");
+        });
+    }
+});
+
+function hideAllCollectionsTabs() {
+    allCollectionsTabs.forEach(tab => tab.classList.add("hidden"));
+}
+
+function clearCollectionsTabButtonActive() {
+    allCollectionsTabButtons.forEach(btn => btn.classList.remove("active"));
+}
+
+// Set initial active state for Equipped sub-tab button
+const initialCollectionsTabBtn = document.getElementById("farmingcollection-btn");
+if (initialCollectionsTabBtn) initialCollectionsTabBtn.classList.add("active");
 //#endregion
 
 //#region Skill Data & Levels
