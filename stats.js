@@ -29,4 +29,13 @@ export function calculatePlayerStats(playerEquipment, playerInventory) {
             playerStats[statName] += statValue;
         });
     });
+    updateStatUI();
+}
+
+function updateStatUI() {
+    for (let statName in playerStats) {
+        let stat = playerStats[statName];
+
+        document.getElementById(`${statName}-stat`).textContent = stat;
+    }
 }
