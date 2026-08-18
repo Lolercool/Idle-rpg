@@ -1,5 +1,10 @@
 import { items } from "./items.js";
 import { calculatePlayerStats, playerStats } from "./stats.js";
+import {
+    showItemTooltip,
+    hideItemTooltip,
+    moveItemTooltip
+} from "./tooltip.js";
 
 let playerInventory = [
     {
@@ -185,6 +190,15 @@ function renderItems() {
         slot.classList.add("item-slot");
         slot.classList.add("stackable-slot");
         slot.classList.add("rarity-" + itemData.rarity);
+        slot.addEventListener("mouseenter", () => {
+            showItemTooltip(itemData);
+        });
+
+        slot.addEventListener("mousemove", event => {
+            moveItemTooltip(event);
+        });
+
+        slot.addEventListener("mouseleave", hideItemTooltip);
 
         let itemName = document.createElement("span");
         itemName.classList.add("item-name");
@@ -275,6 +289,15 @@ function renderStorage() {
         let slot = document.createElement("div");
         slot.classList.add("item-slot");
         slot.classList.add("rarity-" + itemData.rarity);
+        slot.addEventListener("mouseenter", () => {
+            showItemTooltip(itemData);
+        });
+
+        slot.addEventListener("mousemove", event => {
+            moveItemTooltip(event);
+        });
+
+        slot.addEventListener("mouseleave", hideItemTooltip);
 
         let itemName = document.createElement("span");
         itemName.classList.add("item-name");
@@ -313,6 +336,7 @@ let equipmentModalEquipped = document.querySelector(".equipment-modal-equipped")
 function renderEquipmentModal() {
     equipmentModalItems.innerHTML = "";
     equipmentModalCurrentItem.innerHTML = "";
+    let searchText = equipmentModalSearch.value.toLowerCase();
 
     let equippedInstanceId = playerEquipment[selectedEquipmentSlot];
     let compatibleItems = [];
@@ -333,6 +357,15 @@ function renderEquipmentModal() {
         let slot = document.createElement("div");
         slot.classList.add("item-slot");
         slot.classList.add("rarity-" + equippedItemData.rarity);
+        slot.addEventListener("mouseenter", () => {
+            showItemTooltip(itemData);
+        });
+
+        slot.addEventListener("mousemove", event => {
+            moveItemTooltip(event);
+        });
+
+        slot.addEventListener("mouseleave", hideItemTooltip);
 
         let itemName = document.createElement("span");
         itemName.classList.add("item-name");
@@ -359,9 +392,13 @@ function renderEquipmentModal() {
             return;
         }
 
+        let itemNameLower = itemData.name.toLowerCase();
+        let matchesSearch = itemNameLower.includes(searchText);
+
         if (
             itemData.type === selectedEquipmentSlot &&
-            inventoryItem.instanceId !== equippedInstanceId
+            inventoryItem.instanceId !== equippedInstanceId && 
+            matchesSearch
         ) {
             compatibleItems.push(inventoryItem);
         }
@@ -375,6 +412,15 @@ function renderEquipmentModal() {
         let slot = document.createElement("div");
         slot.classList.add("item-slot");
         slot.classList.add("rarity-" + itemData.rarity);
+        slot.addEventListener("mouseenter", () => {
+            showItemTooltip(itemData);
+        });
+
+        slot.addEventListener("mousemove", event => {
+            moveItemTooltip(event);
+        });
+
+        slot.addEventListener("mouseleave", hideItemTooltip);
 
         let itemName = document.createElement("span");
         itemName.classList.add("item-name");
@@ -436,6 +482,7 @@ renderStorage();
 
 itemsSearchInput.addEventListener("input", renderItems);
 storageSearchInput.addEventListener("input", renderStorage);
+equipmentModalSearch.addEventListener("input", renderEquipmentModal);
 
 itemsCategoryFilter.addEventListener("change", renderItems);
 storageCategoryFilter.addEventListener("change", renderStorage);
