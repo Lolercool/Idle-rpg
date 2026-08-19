@@ -477,6 +477,65 @@ function unequipItem() {
     calculatePlayerStats(playerEquipment, playerInventory);
 }
 
+function addItem(item, quantity) {
+    let itemData = items.find(currentItem => currentItem.id === item);
+
+    if (itemData === undefined) {return;}
+    if (itemData.stackable === true) {
+        let inventoryItem = playerInventory.find(currentInventoryItem => currentInventoryItem.itemId === item);
+
+        if (inventoryItem !== undefined) {
+            inventoryItem.quantity += quantity;
+        } else {
+            playerInventory.push({itemId: item, quantity: quantity})
+        }
+    }
+    if (itemData.stackable === false) {
+        let inventoryItems = playerInventory.filter(currentInventoryItem => currentInventoryItem.itemId === item);
+        let highestInstanceNumber = 0;
+
+        inventoryItems.forEach(currentInventoryItem => {
+            let splitItem = currentInventoryItem.instanceId.split("_");
+            let itemNumber = Number(splitItem.at(-1));
+
+            if (itemNumber > highestInstanceNumber) {
+                highestInstanceNumber = itemNumber;
+            }
+        });
+        let nextInstanceId = highestInstanceNumber + 1;
+        let newInstanceId = item + "_" + nextInstanceId;
+
+        playerInventory.push({itemId: item, instanceId: newInstanceId});
+    }
+}
+
+function removeItem(itemId, quantity, instanceId) {
+    let itemData = items.find(currentItem => currentItem.id === itemId);
+
+    if (itemData === undefined) {return;}
+    if (itemData.stackable === true) {
+        let inventoryItem = playerInventory.find(currentInventoryItem => currentInventoryItem.itemId === itemId);
+
+        if (inventoryItem === undefined) {return;}
+
+        inventoryItem.quantity -= quantity;
+
+        if (inventoryItem.quantity <= 0) {
+            let inventoryItemIndex = playerInventory.findIndex(currentInventoryItem => currentInventoryItem.itemId === itemId);
+
+            playerInventory.splice(inventoryItemIndex, 1);
+        }
+    }
+    if (itemData.stackable === false) {
+        let matchingInventoryItem = playerInventory.find(currentInventoryItem => currentInventoryItem.instanceId === instanceId);
+
+        if (matchingInventoryItem === undefined) {return;}
+        let inventoryItemIndex = playerInventory.findIndex(currentInventoryItem => currentInventoryItem.instanceId === instanceId);
+
+            playerInventory.splice(inventoryItemIndex, 1);
+    }
+}
+
 renderItems();
 renderStorage();
 
