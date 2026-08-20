@@ -489,6 +489,7 @@ function addItem(item, quantity) {
         } else {
             playerInventory.push({itemId: item, quantity: quantity})
         }
+        renderItems();
     }
     if (itemData.stackable === false) {
         let inventoryItems = playerInventory.filter(currentInventoryItem => currentInventoryItem.itemId === item);
@@ -506,6 +507,7 @@ function addItem(item, quantity) {
         let newInstanceId = item + "_" + nextInstanceId;
 
         playerInventory.push({itemId: item, instanceId: newInstanceId});
+        renderStorage();
     }
 }
 
@@ -525,14 +527,25 @@ function removeItem(itemId, quantity, instanceId) {
 
             playerInventory.splice(inventoryItemIndex, 1);
         }
+        renderItems();
     }
     if (itemData.stackable === false) {
         let matchingInventoryItem = playerInventory.find(currentInventoryItem => currentInventoryItem.instanceId === instanceId);
 
         if (matchingInventoryItem === undefined) {return;}
+        let playerEquipmentArray = Object.entries(playerEquipment)
+        let isEquipped = playerEquipmentArray.find(([slotName, equippedInstanceId]) => equippedInstanceId === instanceId);
+
+        if (isEquipped !== undefined) {
+            playerEquipment[isEquipped[0]] = null;
+            renderEquipment();
+            calculatePlayerStats(playerEquipment, playerInventory);
+        }
+
         let inventoryItemIndex = playerInventory.findIndex(currentInventoryItem => currentInventoryItem.instanceId === instanceId);
 
-            playerInventory.splice(inventoryItemIndex, 1);
+        playerInventory.splice(inventoryItemIndex, 1);
+        renderStorage();
     }
 }
 
@@ -548,3 +561,7 @@ storageCategoryFilter.addEventListener("change", renderStorage);
 
 itemsSortSelect.addEventListener("change", renderItems);
 storageSortSelect.addEventListener("change", renderStorage);
+
+// Temporary testing
+window.addItem = addItem;
+window.removeItem = removeItem;
