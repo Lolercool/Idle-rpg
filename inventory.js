@@ -561,7 +561,3 @@ storageCategoryFilter.addEventListener("change", renderStorage);
 
 itemsSortSelect.addEventListener("change", renderItems);
 storageSortSelect.addEventListener("change", renderStorage);
-
-// Temporary testing
-window.addItem = addItem;
-window.removeItem = removeItem;
