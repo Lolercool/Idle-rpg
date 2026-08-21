@@ -51,5 +51,3 @@ function updateStatUI() {
         document.getElementById(`${statName}-stat`).textContent = stat;
     }
 }
-
-window.addBaseStat = addBaseStat;
