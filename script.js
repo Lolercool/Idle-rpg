@@ -1,3 +1,5 @@
+import { playerSkills } from "./playerState.js";
+
 //#region Player State & Stats Display
 let player = {
     level: 0,
@@ -163,15 +165,6 @@ const initialCollectionsTabBtn = document.getElementById("farmingcollection-btn"
 if (initialCollectionsTabBtn) initialCollectionsTabBtn.classList.add("active");
 //#endregion
 
-//#region Skill Data & Levels
-let player_skills = {
-    farming: { level: 1, xp: 0 },
-    mining: { level: 1, xp: 0 },
-    foraging: { level: 1, xp: 0 },
-    combat: { level: 1, xp: 0 },
-    fishing: { level: 1, xp: 0 },
-};
-
 let skill_levels = {
     1: 50,
     2: 100,
@@ -194,12 +187,11 @@ let skill_levels = {
     19: 35000,
     20: 40000,
 };
-//#endregion
 
 //#region UI Update Functions & Initialization
 function updateSkillsUI() {
-    for (let skillName in player_skills) {
-        let skill = player_skills[skillName];
+    for (let skillName in playerSkills) {
+        let skill = playerSkills[skillName];
         let targetXp = skill_levels[skill.level] || skill_levels[20];
         let percentage = Math.min((skill.xp / targetXp) * 100, 100);
 

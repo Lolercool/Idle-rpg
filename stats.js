@@ -1,4 +1,5 @@
 import { items } from "./items.js";
+import { playerEquipment, playerInventory } from "./playerState.js";
 
 let baseStats = {
     health: 100,
@@ -16,8 +17,13 @@ export let playerStats = {
     ...baseStats
 };
 
-export function calculatePlayerStats(playerEquipment, playerInventory) {
+export function calculatePlayerStats() {
     playerStats = {...baseStats};
+    addEquipmentStats(playerEquipment, playerInventory);
+    updateStatUI();
+}
+
+export function addEquipmentStats(playerEquipment, playerInventory) {
     let equippedItems = Object.values(playerEquipment);
 
     equippedItems.forEach(instanceId => {
@@ -29,8 +35,14 @@ export function calculatePlayerStats(playerEquipment, playerInventory) {
             playerStats[statName] += statValue;
         });
     });
-    updateStatUI();
 }
+
+function addBaseStat(stat, amount) {
+    if (baseStats[stat] !== undefined ) {
+        baseStats[stat] += amount;
+        calculatePlayerStats();
+    } 
+}   
 
 function updateStatUI() {
     for (let statName in playerStats) {
@@ -39,3 +51,5 @@ function updateStatUI() {
         document.getElementById(`${statName}-stat`).textContent = stat;
     }
 }
+
+window.addBaseStat = addBaseStat;
