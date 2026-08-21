@@ -37,7 +37,7 @@ export function addEquipmentStats(playerEquipment, playerInventory) {
     });
 }
 
-function addBaseStat(stat, amount) {
+export function addBaseStat(stat, amount) {
     if (baseStats[stat] !== undefined ) {
         baseStats[stat] += amount;
         calculatePlayerStats();
