@@ -84,7 +84,7 @@ export let playerSkills = {
     fishing: { level: 1, xp: 0 },
 };
 
-let player = {
+export let player = {
     name: "Player",
     level: 0,
     xp: 0,
