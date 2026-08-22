@@ -1,30 +1,17 @@
-import { playerSkills } from "./playerState.js";
-
-//#region Player State & Stats Display
-let player = {
-    level: 0,
-    xp: 0,
-    coins: 0,
-};
+import { playerSkills, player } from "./playerState.js";
 
 let coinDisplay = document.getElementById("coin-text");
-coinDisplay.textContent = player.coins;
-
 let levelDisplay = document.getElementById("level-text");
-levelDisplay.textContent = player.level;
-
 let xpDisplay = document.getElementById("xp-text");
-xpDisplay.textContent = player.xp;
-//#endregion
 
 //#region Main View Navigation
-const viewNames = [
+let viewNames = [
     "profile", "inventory", "skills", "collections", "map",
     "farming", "mining", "foraging", "combat", "fishing"
 ];
 
-const allViews = [];
-const allMainButtons = [];
+let allViews = [];
+let allMainButtons = [];
 
 viewNames.forEach(name => {
     const view = document.getElementById(`${name}-main-view`);
@@ -53,18 +40,18 @@ function clearMainButtonActive() {
 }
 
 // Set initial active state for Profile view button
-const initialMainBtn = document.getElementById("profile-btn");
+let initialMainBtn = document.getElementById("profile-btn");
 if (initialMainBtn) initialMainBtn.classList.add("active");
 //#endregion
 
 //#region Profile Sub-Tab Navigation
-const profileTabNames = ["profiletab", "stats", "quests"];
-const allProfileTabs = [];
-const allProfileTabButtons = [];
+let profileTabNames = ["profiletab", "stats", "quests"];
+let allProfileTabs = [];
+let allProfileTabButtons = [];
 
 profileTabNames.forEach(name => {
-    const tab = document.getElementById(`tab-${name}`);
-    const btn = document.getElementById(`${name}-btn`);
+    let tab = document.getElementById(`tab-${name}`);
+    let btn = document.getElementById(`${name}-btn`);
 
     if (tab) allProfileTabs.push(tab);
     if (btn) allProfileTabButtons.push(btn);
@@ -89,18 +76,18 @@ function clearProfileTabButtonActive() {
 }
 
 // Set initial active state for Profile sub-tab button
-const initialProfileTabBtn = document.getElementById("profiletab-btn");
+let initialProfileTabBtn = document.getElementById("profiletab-btn");
 if (initialProfileTabBtn) initialProfileTabBtn.classList.add("active");
 //#endregion
 
 //#region Inventory Sub-Tab Navigation
-const inventoryTabNames = ["equipped", "wardrobe", "accessories", "items", "storage", "pets"];
-const allInventoryTabs = [];
-const allInventoryTabButtons = [];
+let inventoryTabNames = ["equipped", "wardrobe", "accessories", "items", "storage", "pets"];
+let allInventoryTabs = [];
+let allInventoryTabButtons = [];
 
 inventoryTabNames.forEach(name => {
-    const tab = document.getElementById(`tab-${name}`);
-    const btn = document.getElementById(`${name}-btn`);
+    let tab = document.getElementById(`tab-${name}`);
+    let btn = document.getElementById(`${name}-btn`);
 
     if (tab) allInventoryTabs.push(tab);
     if (btn) allInventoryTabButtons.push(btn);
@@ -125,18 +112,18 @@ function clearInventoryTabButtonActive() {
 }
 
 // Set initial active state for Equipped sub-tab button
-const initialInventoryTabBtn = document.getElementById("equipped-btn");
+let initialInventoryTabBtn = document.getElementById("equipped-btn");
 if (initialInventoryTabBtn) initialInventoryTabBtn.classList.add("active");
 //#endregion
 
 //#region Collections Sub-Tab Navigation
-const collectionsTabNames = ["farmingcollection", "miningcollection", "foragingcollection", "combatcollection", "fishingcollection"];
-const allCollectionsTabs = [];
-const allCollectionsTabButtons = [];
+let collectionsTabNames = ["farmingcollection", "miningcollection", "foragingcollection", "combatcollection", "fishingcollection"];
+let allCollectionsTabs = [];
+let allCollectionsTabButtons = [];
 
 collectionsTabNames.forEach(name => {
-    const tab = document.getElementById(`tab-${name}`);
-    const btn = document.getElementById(`${name}-btn`);
+    let tab = document.getElementById(`tab-${name}`);
+    let btn = document.getElementById(`${name}-btn`);
 
     if (tab) allCollectionsTabs.push(tab);
     if (btn) allCollectionsTabButtons.push(btn);
@@ -161,7 +148,7 @@ function clearCollectionsTabButtonActive() {
 }
 
 // Set initial active state for Equipped sub-tab button
-const initialCollectionsTabBtn = document.getElementById("farmingcollection-btn");
+let initialCollectionsTabBtn = document.getElementById("farmingcollection-btn");
 if (initialCollectionsTabBtn) initialCollectionsTabBtn.classList.add("active");
 //#endregion
 
@@ -202,5 +189,32 @@ function updateSkillsUI() {
     }
 }
 
+function addXp(amount) {
+    player.xp += amount;
+    while (player.xp>=100) {
+        player.level += 1;
+        player.xp -= 100;
+    }
+    updatePlayerUI();
+}
+
+function addCoins(amount) {
+    player.coins += amount;
+    updatePlayerUI();
+}
+function removeCoins(amount) {
+    if (player.coins >= amount) {
+        player.coins -= amount;
+    }
+    updatePlayerUI();
+}
+
+function updatePlayerUI() {
+    coinDisplay.textContent = player.coins;
+    levelDisplay.textContent = player.level;
+    xpDisplay.textContent = player.xp;
+}
+
+updatePlayerUI();
 updateSkillsUI();
 //#endregion
