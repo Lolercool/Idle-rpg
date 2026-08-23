@@ -1,4 +1,4 @@
-import { playerSkills } from "./playerState";
+import { playerSkills } from "./playerState.js";
 
 export let skillLevels = {
     "1": 50,
@@ -63,11 +63,18 @@ export let skillLevels = {
     "60": 7000000,
 };
 
+export function getSkillXpRequirement(level) {
+    if (level <= 60) {
+        return skillLevels[level];
+    }
+
+    return Math.round(7000000 * (1.05 ** (level - 60)));
+}
 
 export function updateSkillsUI() {
     for (let skillName in playerSkills) {
         let skill = playerSkills[skillName];
-        let targetXp = skillLevels[skill.level] || skillLevels[20];
+        let targetXp = getSkillXpRequirement(skill.level + 1);
         let percentage = Math.min((skill.xp / targetXp) * 100, 100);
 
         document.getElementById(`${skillName}-level`).textContent = skill.level;
@@ -81,10 +88,10 @@ export function addSkillXP(skill, amount) {
     if (skill in playerSkills) {
         let currentSkill = playerSkills[skill];
         currentSkill.xp += amount;
-        while (currentSkill.xp >= skillLevels[currentSkill.level]) {
-            currentSkill.xp -= skillLevels[currentSkill.level];
+        while (currentSkill.xp >= getSkillXpRequirement(currentSkill.level + 1)) {
+            currentSkill.xp -= getSkillXpRequirement(currentSkill.level + 1);
             currentSkill.level += 1;
         }
-        updateSkillsUI()
+        updateSkillsUI();
     }
 }
