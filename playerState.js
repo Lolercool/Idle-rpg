@@ -82,6 +82,10 @@ export let playerSkills = {
     foraging: { level: 1, xp: 0 },
     combat: { level: 1, xp: 0 },
     fishing: { level: 1, xp: 0 },
+    crafting: { level: 1, xp: 0 },
+    enchanting: { level: 1, xp: 0 },
+    taming: { level: 1, xp: 0 },
+    alchemy: { level: 1, xp: 0 },
 };
 
 export let player = {

@@ -152,43 +152,8 @@ let initialCollectionsTabBtn = document.getElementById("farmingcollection-btn");
 if (initialCollectionsTabBtn) initialCollectionsTabBtn.classList.add("active");
 //#endregion
 
-let skill_levels = {
-    1: 50,
-    2: 100,
-    3: 250,
-    4: 500,
-    5: 750,
-    6: 1000,
-    7: 2000,
-    8: 3500,
-    9: 5000,
-    10: 7500,
-    11: 10000,
-    12: 12500,
-    13: 15000,
-    14: 17500,
-    15: 20000,
-    16: 22500,
-    17: 25000,
-    18: 30000,
-    19: 35000,
-    20: 40000,
-};
 
 //#region UI Update Functions & Initialization
-function updateSkillsUI() {
-    for (let skillName in playerSkills) {
-        let skill = playerSkills[skillName];
-        let targetXp = skill_levels[skill.level] || skill_levels[20];
-        let percentage = Math.min((skill.xp / targetXp) * 100, 100);
-
-        document.getElementById(`${skillName}-level`).textContent = skill.level;
-        document.getElementById(`${skillName}-xp`).textContent = skill.xp;
-        document.getElementById(`${skillName}-next-xp`).textContent = targetXp;
-        document.getElementById(`${skillName}-bar`).style.width = percentage + "%";
-    }
-}
-
 function addXp(amount) {
     player.xp += amount;
     while (player.xp>=100) {
