@@ -47,8 +47,106 @@
           <button id="stats-btn">Stats</button>
           <button id="quests-btn">Quests</button>
         </nav>
-        <div id="tab-profiletab" class="">
-            <h3>Profile</h3>
+        <div id="tab-profiletab">
+
+          <!-- Player Header -->
+          <div class="profile-header-card">
+              <div class="profile-avatar">
+                  <span>Player</span>
+              </div>
+              <div class="profile-header-info">
+                  <h2 id="profile-player-name">Player</h2>
+                  <div class="profile-header-stats">
+                      <div class="profile-level-card">
+                          <span class="profile-label">PLAYER LEVEL</span>
+                          <span id="profile-player-level">0</span>
+                          <div class="profile-xp-bar">
+                              <div id="profile-xp-fill"></div>
+                          </div>
+                      </div>
+                      <div class="profile-coins-card">
+                          <span class="profile-label">COINS</span>
+                          <span id="profile-player-coins">0</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Main Profile Content -->
+          <div class="profile-content">
+            <div class="profile-left-column">
+
+                <!-- Current Activity -->
+                <div class="profile-card profile-activity-card">
+                  <div class="profile-card-header">
+                    <h3>Current Activity</h3>
+                  </div>
+                  <div class="profile-current-activity">
+                    <span id="profile-activity-name">No activity</span>
+                    <span id="profile-activity-location">—</span>
+                  </div>
+                  <div class="profile-activity-progress">
+                    <div class="profile-activity-progress-header">
+                      <span>Progress</span>
+                      <span id="profile-activity-progress-text">0 / 0</span>
+                    </div>
+                    <div class="profile-activity-bar">
+                      <div id="profile-activity-fill"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Statistics -->
+                <div class="profile-card profile-statistics-card">
+                  <div class="profile-card-header">
+                    <h3>Statistics</h3>
+                  </div>
+                  <div class="profile-statistics-grid">
+                    <div class="profile-stat-box">
+                      <span id="profile-stat-coins">0</span>
+                      <span>Coins</span>
+                    </div>
+                    <div class="profile-stat-box">
+                      <span id="profile-stat-total-skill-level">0</span>
+                      <span>Total Skill Level</span>
+                    </div>
+                    <div class="profile-stat-box">
+                      <span id="profile-stat-3">—</span>
+                      <span>Coming Soon</span>
+                    </div>
+                    <div class="profile-stat-box">
+                      <span id="profile-stat-4">—</span>
+                      <span>Coming Soon</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Equipped Items -->
+              <div class="profile-card profile-equipment-card">
+                <div class="profile-card-header">
+                  <h3>Equipped Items</h3>
+                </div>
+                <div class="profile-equipment-grid">
+                  <div class="profile-equipment-slot" data-slot="helmet"></div>
+                  <div class="profile-equipment-slot" data-slot="chestplate"></div>
+                  <div class="profile-equipment-slot" data-slot="leggings"></div>
+                  <div class="profile-equipment-slot" data-slot="boots"></div>
+
+                  <div class="profile-equipment-slot" data-slot="sword"></div>
+                  <div class="profile-equipment-slot" data-slot="bow"></div>
+
+                  <div class="profile-equipment-slot" data-slot="pickaxe"></div>
+                  <div class="profile-equipment-slot" data-slot="axe"></div>
+                  <div class="profile-equipment-slot" data-slot="hoe"></div>
+                  <div class="profile-equipment-slot" data-slot="shovel"></div>
+                  <div class="profile-equipment-slot" data-slot="rod"></div>
+
+                  <div class="profile-equipment-slot" data-slot="pet"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div id="tab-stats" class="hidden">
             <h3>Stats</h3>
